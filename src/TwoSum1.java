@@ -6,7 +6,7 @@ public class TwoSum1 {
 
     // Time: O(n), Space: O(n)
     public int[] twoSum(int[] nums, int target) {
-        var numToIdx = new HashMap<Integer, Integer>();
+        HashMap<Integer, Integer> numToIdx = new HashMap<>();
         for (int i=0; i<nums.length; i++) {
             if (numToIdx.containsKey(target - nums[i])) {
                 return new int[] {numToIdx.get(target - nums[i]), i};

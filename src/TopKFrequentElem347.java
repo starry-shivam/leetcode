@@ -20,9 +20,13 @@ public class TopKFrequentElem347 {
         }
     }
 
+    // Time complexity: O(nlogk), Space complexity: O(n)
+    // n is the length of nums.
+    // k is the value of k.
+    // PriorityQueue is a min heap.
     public int[] topKFrequent(int[] nums, int k) {
-        var freqMap = new HashMap<Integer, Integer>();
-        var priorityQueue = new PriorityQueue<Pair>();
+        HashMap<Integer, Integer> freqMap = new HashMap<>();
+        PriorityQueue<Pair> priorityQueue = new PriorityQueue<>();
         for (int num : nums) {
             freqMap.put(num, freqMap.getOrDefault(num, 0) + 1);
         }
@@ -37,7 +41,7 @@ public class TopKFrequentElem347 {
         int[] ans = new int[k];
         int i = 0;
         while (!priorityQueue.isEmpty()) {
-            var freq = priorityQueue.remove();
+            Pair freq = priorityQueue.remove();
             ans[i] = freq.num;
             i++;
         }

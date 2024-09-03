@@ -9,8 +9,8 @@ public class ValidAnagram242 {
             return false;
         }
 
-        var sCharMap = new HashMap<Character, Integer>();
-        var tCharMap = new HashMap<Character, Integer>();
+        HashMap<Character, Integer> sCharMap = new HashMap<>();
+        HashMap<Character, Integer> tCharMap = new HashMap<>();
 
         // Worst case scenario: O(n)
         for (int i = 0; i < s.length(); i++) {

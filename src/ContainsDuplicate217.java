@@ -5,8 +5,8 @@ import java.util.HashSet;
 public class ContainsDuplicate217 {
 
     public boolean containsDuplicate(int[] nums) {
-        var set = new HashSet<Integer>();
-        for (int i=0;i<nums.length;i++) {
+        HashSet<Integer> set = new HashSet<>();
+        for (int i = 0; i < nums.length; i++) {
             if (!set.add(nums[i])) {
                 return true;
             }
@@ -20,6 +20,6 @@ public class ContainsDuplicate217 {
         int[] nums2 = {1, 2, 3, 4}; // false
         System.out.println(solution.containsDuplicate(nums));
         System.out.println(solution.containsDuplicate(nums2));
-        ExecDuration.measure(()->solution.containsDuplicate(nums));
+        ExecDuration.measure(() -> solution.containsDuplicate(nums));
     }
 }
