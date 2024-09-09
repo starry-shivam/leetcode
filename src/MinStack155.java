@@ -1,35 +1,39 @@
-import java.util.Stack;
-
 public class MinStack155 {
 
-    private final Stack<Integer> mainStack;
-    private final Stack<Integer> minStack;
+    private static class Node {
+        int val;
+        int min;
+        Node next;
 
-    public MinStack155() {
-        this.mainStack = new Stack<>();
-        this.minStack = new Stack<>();
+        public Node(int val, int min, Node next) {
+            this.val = val;
+            this.min = min;
+            this.next = next;
+        }
     }
 
+    Node head = null;
+
+    public MinStack155() {}
+
     public void push(int val) {
-        mainStack.push(val);
-        if (minStack.isEmpty() || val <= minStack.peek()) {
-            minStack.push(val);
-        } else {
-            minStack.push(minStack.peek());
+        if (head == null) {
+            head = new Node(val, val, null);
+        } else  {
+            head = new Node(val, Math.min(val, head.min), head);
         }
     }
 
     public void pop() {
-        mainStack.pop();
-        minStack.pop();
+       head = head.next;
     }
 
     public int top() {
-        return mainStack.peek();
+        return head.val;
     }
 
     public int getMin() {
-        return minStack.peek();
+        return head.min;
     }
 
     public static void main(String[] args) {
