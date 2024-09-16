@@ -4,6 +4,14 @@ import java.util.Arrays;
 
 public class TwoSum167 {
 
+    public static void main(String[] args) {
+        TwoSum167 obj = new TwoSum167();
+        int[] numbers = {2, 7, 11, 15};
+        int target = 9;
+        System.out.println(Arrays.toString(obj.twoSum(numbers, target))); // [1, 2]
+        ExecDuration.measure(() -> obj.twoSum(numbers, target));
+    }
+
     // Two pointers approach, uses constant space complexity
     // Time: O(n), Space: O(1)
     public int[] twoSum(int[] numbers, int target) {
@@ -20,13 +28,5 @@ public class TwoSum167 {
         }
 
         return null;
-    }
-
-    public static void main(String[] args) {
-        TwoSum167 obj = new TwoSum167();
-        int[] numbers = {2, 7, 11, 15};
-        int target = 9;
-        System.out.println(Arrays.toString(obj.twoSum(numbers, target))); // [1, 2]
-        ExecDuration.measure(() -> obj.twoSum(numbers, target));
     }
 }

@@ -5,6 +5,16 @@ import java.util.List;
 
 public class EncodeAndDecodeString659 {
 
+    public static void main(String[] args) {
+        EncodeAndDecodeString659 obj = new EncodeAndDecodeString659();
+        List<String> strs = List.of("lint", "code", "love", "you");
+        String encoded = obj.encode(strs);
+        System.out.println("Encoded: " + encoded);
+        System.out.println("Decoded: " + obj.decode(encoded));
+        ExecDuration.measure(() -> obj.encode(strs));
+        ExecDuration.measure(() -> obj.decode(encoded));
+    }
+
     public String encode(List<String> strs) {
         StringBuilder stringBuilder = new StringBuilder();
         for (String str : strs) {
@@ -14,7 +24,6 @@ public class EncodeAndDecodeString659 {
         }
         return stringBuilder.toString();
     }
-
 
     public List<String> decode(String str) {
         ArrayList<String> output = new ArrayList<>();
@@ -32,15 +41,5 @@ public class EncodeAndDecodeString659 {
             i += length;
         }
         return output;
-    }
-
-    public static void main(String[] args) {
-        EncodeAndDecodeString659 obj = new EncodeAndDecodeString659();
-        List<String> strs = List.of("lint", "code", "love", "you");
-        String encoded = obj.encode(strs);
-        System.out.println("Encoded: " + encoded);
-        System.out.println("Decoded: " + obj.decode(encoded));
-        ExecDuration.measure(() -> obj.encode(strs));
-        ExecDuration.measure(() -> obj.decode(encoded));
     }
 }

@@ -7,6 +7,16 @@ import java.util.List;
 
 public class GroupAnagrams49 {
 
+    public static void main(String[] args) {
+        GroupAnagrams49 obj = new GroupAnagrams49();
+        String[] strs = {"eat", "tea", "tan", "ate", "nat", "bat"};
+        System.out.println(obj.groupAnagrams2(strs));
+        System.out.println("Group Anagrams 1: ");
+        ExecDuration.measure(() -> obj.groupAnagrams1(strs));
+        System.out.println("Group Anagrams 2: ");
+        ExecDuration.measure(() -> obj.groupAnagrams2(strs));
+    }
+
     // Time: O(k * n * log(n)), Space: O(k * n)
     // k is the length of the longest string in strs.
     // n is the length of strs.
@@ -44,16 +54,5 @@ public class GroupAnagrams49 {
             sortedToWordsMap.get(key).add(str);
         }
         return new ArrayList<>(sortedToWordsMap.values());
-    }
-
-
-    public static void main(String[] args) {
-        GroupAnagrams49 obj = new GroupAnagrams49();
-        String[] strs = {"eat", "tea", "tan", "ate", "nat", "bat"};
-        System.out.println(obj.groupAnagrams2(strs));
-        System.out.println("Group Anagrams 1: ");
-        ExecDuration.measure(() -> obj.groupAnagrams1(strs));
-        System.out.println("Group Anagrams 2: ");
-        ExecDuration.measure(() -> obj.groupAnagrams2(strs));
     }
 }

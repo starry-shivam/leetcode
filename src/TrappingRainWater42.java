@@ -2,30 +2,6 @@ import utils.ExecDuration;
 
 public class TrappingRainWater42 {
 
-    public int trap(int[] height) {
-        int sum = 0;
-        int leftMax = 0;
-        int rightMax = 0;
-
-        int l = 0;
-        int r = height.length - 1;
-        while (l < r) {
-            if (height[l] < height[r]) {
-                leftMax = Math.max(leftMax, height[l]);
-                int water = leftMax - height[l];
-                sum += Math.max(water, 0);
-                l++;
-            } else {
-                rightMax = Math.max(rightMax, height[r]);
-                int water = rightMax - height[r];
-                sum += Math.max(water, 0);
-                r--;
-            }
-        }
-        return sum;
-    }
-
-
     public static void main(String[] args) {
         TrappingRainWater42 obj = new TrappingRainWater42();
         int[] input1 = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
@@ -51,5 +27,28 @@ public class TrappingRainWater42 {
         ExecDuration.measure(() -> obj.trap(input5));
         ExecDuration.measure(() -> obj.trap(input6));
         ExecDuration.measure(() -> obj.trap(input7));
+    }
+
+    public int trap(int[] height) {
+        int sum = 0;
+        int leftMax = 0;
+        int rightMax = 0;
+
+        int l = 0;
+        int r = height.length - 1;
+        while (l < r) {
+            if (height[l] < height[r]) {
+                leftMax = Math.max(leftMax, height[l]);
+                int water = leftMax - height[l];
+                sum += Math.max(water, 0);
+                l++;
+            } else {
+                rightMax = Math.max(rightMax, height[r]);
+                int water = rightMax - height[r];
+                sum += Math.max(water, 0);
+                r--;
+            }
+        }
+        return sum;
     }
 }

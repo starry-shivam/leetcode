@@ -4,6 +4,13 @@ import java.util.Arrays;
 
 public class ProductExpectSelf238 {
 
+    public static void main(String[] args) {
+        ProductExpectSelf238 obj = new ProductExpectSelf238();
+        int[] nums = {4, 3, 2, 1, 2};
+        System.out.println(Arrays.toString(obj.productExceptSelf(nums)));
+        ExecDuration.measure(() -> obj.productExceptSelf(nums));
+    }
+
     // Time complexity: O(n), Space complexity: O(1)
     // Output array doesn't count as extra space.
     public int[] productExceptSelf(int[] nums) {
@@ -23,12 +30,5 @@ public class ProductExpectSelf238 {
         }
 
         return output;
-    }
-
-    public static void main(String[] args) {
-        ProductExpectSelf238 obj = new ProductExpectSelf238();
-        int[] nums = {4, 3, 2, 1, 2};
-        System.out.println(Arrays.toString(obj.productExceptSelf(nums)));
-        ExecDuration.measure(() -> obj.productExceptSelf(nums));
     }
 }

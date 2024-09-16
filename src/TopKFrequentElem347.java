@@ -6,18 +6,12 @@ import java.util.PriorityQueue;
 
 public class TopKFrequentElem347 {
 
-    static class Pair implements Comparable<Pair> {
-        int num;
-        int freq;
-
-        Pair(int num, int freq) {
-            this.num = num;
-            this.freq = freq;
-        }
-
-        public int compareTo(Pair other) {
-            return this.freq - other.freq;
-        }
+    public static void main(String[] args) {
+        TopKFrequentElem347 obj = new TopKFrequentElem347();
+        int[] nums = {1, 1, 1, 2, 2, 3};
+        int k = 2;
+        System.out.println(Arrays.toString(obj.topKFrequent(nums, k)));
+        ExecDuration.measure(() -> obj.topKFrequent(nums, k));
     }
 
     // Time complexity: O(nlogk), Space complexity: O(n)
@@ -49,11 +43,17 @@ public class TopKFrequentElem347 {
         return ans;
     }
 
-    public static void main(String[] args) {
-        TopKFrequentElem347 obj = new TopKFrequentElem347();
-        int[] nums = {1, 1, 1, 2, 2, 3};
-        int k = 2;
-        System.out.println(Arrays.toString(obj.topKFrequent(nums, k)));
-        ExecDuration.measure(() -> obj.topKFrequent(nums, k));
+    static class Pair implements Comparable<Pair> {
+        int num;
+        int freq;
+
+        Pair(int num, int freq) {
+            this.num = num;
+            this.freq = freq;
+        }
+
+        public int compareTo(Pair other) {
+            return this.freq - other.freq;
+        }
     }
 }

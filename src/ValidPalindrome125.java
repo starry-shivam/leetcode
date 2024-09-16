@@ -2,6 +2,24 @@ import utils.ExecDuration;
 
 public class ValidPalindrome125 {
 
+    public static void main(String[] args) {
+        ValidPalindrome125 obj = new ValidPalindrome125();
+        String input1 = "A man, a plan, a canal: Panama";
+        System.out.println(obj.isPalindrome1(input1)); // true
+        System.out.println(obj.isPalindrome2(input1)); // true
+        String input2 = "race a car";
+        System.out.println(obj.isPalindrome1(input2)); // false
+        System.out.println(obj.isPalindrome2(input2)); // false
+        System.out.println("---------------------------------- ");
+        System.out.println("ExecDuration for isPalindrome1: ");
+        ExecDuration.measure(() -> obj.isPalindrome1(input1));
+        ExecDuration.measure(() -> obj.isPalindrome1(input2));
+        System.out.println("---------------------------------- ");
+        System.out.println("ExecDuration for isPalindrome2: ");
+        ExecDuration.measure(() -> obj.isPalindrome2(input1));
+        ExecDuration.measure(() -> obj.isPalindrome2(input2));
+    }
+
     // StringBuilder approach, uses extra space to store the cleaned string
     // Time: O(n), Space: O(n)
     public boolean isPalindrome1(String s) {
@@ -43,23 +61,5 @@ public class ValidPalindrome125 {
             }
         }
         return true;
-    }
-
-    public static void main(String[] args) {
-        ValidPalindrome125 obj = new ValidPalindrome125();
-        String input1 = "A man, a plan, a canal: Panama";
-        System.out.println(obj.isPalindrome1(input1)); // true
-        System.out.println(obj.isPalindrome2(input1)); // true
-        String input2 = "race a car";
-        System.out.println(obj.isPalindrome1(input2)); // false
-        System.out.println(obj.isPalindrome2(input2)); // false
-        System.out.println("---------------------------------- ");
-        System.out.println("ExecDuration for isPalindrome1: ");
-        ExecDuration.measure(() -> obj.isPalindrome1(input1));
-        ExecDuration.measure(() -> obj.isPalindrome1(input2));
-        System.out.println("---------------------------------- ");
-        System.out.println("ExecDuration for isPalindrome2: ");
-        ExecDuration.measure(() -> obj.isPalindrome2(input1));
-        ExecDuration.measure(() -> obj.isPalindrome2(input2));
     }
 }
